@@ -12,17 +12,18 @@ public class Triangle {
     double bc;
     double ac;
 
+
     public Triangle(double ab, double bc, double ac) {
         this.ab = ab;
         this.bc = bc;
         this.ac = ac;
-    }
+                  }
     @Override
     public String toString() {
         return "Triangle{" +
                 "ab=" + ab +
                 ", bc =" + bc +
-                ", ac=" + ac +
+                ", ac=" + ac +"; S="+this.calcArea()+
                 '}';
     }
 

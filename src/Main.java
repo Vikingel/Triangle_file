@@ -14,7 +14,7 @@ public class Main {
         ArrayList<Triangle> trs = readFromFile(fname);
         System.out.println(trs);
         System.out.println("------------------------------");
-        System.out.println("Общая площадь = " + getTotalArea());
+        System.out.println("Общая площадь = " + getTotalArea(trs));
     }
 
 
@@ -28,18 +28,13 @@ public class Main {
             if (ab < bc + ac && bc < ab + ac && ac < ab + bc) {
                 trs.add(new Triangle(ab, bc, ac));
             }
-        }
+                   }
         scanner.close();
         return trs;
 
     }
 
-    public static double getTotalArea() {
-        double sum = 0;
-        ArrayList<Triangle> trs = new ArrayList<>();
-        for (Triangle t : trs) {
-            sum += t.calcArea();
-        }
-        return sum;
+    public static double getTotalArea(ArrayList<Triangle> trs){
+        return trs.stream().mapToDouble(Triangle::calcArea).sum();
     }
 }
